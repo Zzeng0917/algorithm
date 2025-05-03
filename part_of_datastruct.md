@@ -28,6 +28,36 @@ hash[num]++
 
 
 
+二维的哈希表：
+
+**LC1128:等价多米诺骨牌对的数目**
+
+形式上，`dominoes[i] = [a, b]` 与 `dominoes[j] = [c, d]` **等价** 当且仅当 (`a == c` 且 `b == d`) 或者 (`a == d` 且 `b == c`)
+
+分析：每次都将最小放在前，最大放在后，就不用额外考虑转换的问题
+
+二维哈希：
+
+```go
+//golang: 
+cnt := [10][10]int{}
+```
+
+```python
+#python:defaultdict 是 Python 中 collections 模块下的一个类，它继承自内置的 dict，并扩展了默认值的功能。当访问不存在的键时，defaultdict 可以自动为这个键生成一个默认值，而不会抛出 KeyError 异常。
+cnt = defaultdict(int)
+```
+
+```c++
+//C++
+for (auto& x : dominoes) {
+            auto [a,b] = minmax(x[0], x[1]);
+            ans += cnt[a][b]++;
+        }
+```
+
+
+
 ## 队列
 
 (赶进度，为了快点做一些有关堆的题目)
@@ -167,9 +197,17 @@ void QueuePop(Queue* pq)
 
 
 
+## 栈
 
+先进后出
 
-
+```python
+pyhton(C++类似):
+入栈: .append 或者.extend
+出栈: .pop
+判断空: .empty
+extend()函数直接添加列表或字典中的元素，而append()函数则是将列表或字典当作一个元素直接添加。
+```
 
 
 
